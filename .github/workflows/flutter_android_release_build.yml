@@ -1,10 +1,10 @@
-name: Flutter Android Release APK Build
+name: Flutter Android Release Build
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+#   push:
+#     branches: [ main ]
+#   pull_request:
+#     branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -16,12 +16,17 @@ jobs:
       with:
 #         flutter-version: '2.10.4'
         channel: 'stable'
+    - run: javac -version
     - run: flutter --version
     - run: flutter pub get
     - run: flutter test
     - run: flutter build apk --release
-    - run: flutter build appbundle --release
-    - uses: actions/upload-artifact@v1
+    - uses: actions/upload-artifact@v3
       with:
-        name: android-release-apk-build
+        name: android-release-apk
         path: 'build/app/outputs/flutter-apk/app-release.apk'
+    - run: flutter build appbundle --release
+    - uses: actions/upload-artifact@v3
+      with:
+        name: android-release-appbundle
+        path: 'build/app/outputs/bundle/release/app-release.aab'
