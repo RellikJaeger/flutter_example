@@ -20,7 +20,8 @@ jobs:
     - run: flutter pub get
     - run: flutter test
     - run: flutter build apk --release
+    - run: flutter build appbundle --release
     - uses: actions/upload-artifact@v1
       with:
         name: android-release-apk-build
-#         path: '/Users/runner/work/flutter_example/flutter_example/build/ios/iphoneos/Runner.app'
+        path: 'build/app/outputs/flutter-apk/app-release.apk'
