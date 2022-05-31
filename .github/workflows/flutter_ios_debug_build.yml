@@ -24,4 +24,4 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: 'ios-debug-build.app'
-#         path: '/Users/runner/work/flutter_example/flutter_example/build/ios/iphoneos/Runner.app'
+        path: '/Users/runner/work/flutter_example/flutter_example/build/ios/iphoneos/Runner.app'
