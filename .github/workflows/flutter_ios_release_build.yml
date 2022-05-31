@@ -1,10 +1,10 @@
 name: Flutter iOS Release Build
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+#   push:
+#     branches: [ main ]
+#   pull_request:
+#     branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -21,7 +21,7 @@ jobs:
     - run: flutter pub get
     - run: flutter test
     - run: flutter build ios --release --no-codesign
-    - uses: actions/upload-artifact@v1
+    - uses: actions/upload-artifact@v3
       with:
-        name: ios-release-build
+        name: 'ios-release-build.app'
         path: '/Users/runner/work/flutter_example/flutter_example/build/ios/iphoneos/Runner.app'
